@@ -17,7 +17,7 @@ from src.service.service import Service
 
 
 class AudioDataModule(pl.LightningDataModule):
-    def __init__(self, service: Service, data_dir, audio_dataset_class, sample_rate=16000):
+    def __init__(self, service: Service, data_dir, audio_dataset_class, sample_rate=16000): # here is the sample rate
         """
         Initializes the AudioDataModule.
 
@@ -223,15 +223,15 @@ class AudioDataModule(pl.LightningDataModule):
 
     def train_dataloader(self):
         return DataLoader(self.train_dataset, batch_size=self.service.batch_size, shuffle=True,
-                          num_workers=self.service.cpu_workers,
+                          num_workers=8,
                           persistent_workers=True)
 
     def val_dataloader(self):
         return DataLoader(self.valid_dataset, batch_size=self.service.batch_size, shuffle=False,
-                          num_workers=self.service.cpu_workers,
+                          num_workers=8,
                           persistent_workers=True)
 
     def test_dataloader(self):
         return DataLoader(self.test_dataset, batch_size=self.service.batch_size, shuffle=False,
-                          num_workers=self.service.cpu_workers,
+                          num_workers=8,
                           persistent_workers=True)

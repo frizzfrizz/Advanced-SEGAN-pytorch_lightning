@@ -81,7 +81,7 @@ class SEGAN(pl.LightningModule):
         if z is None:
             # create thought vector
             z = torch.zeros([noisy.size(0), 1024, 8]).to(device=noisy.device)
-
+        print(noisy.shape)
         # Apply the generator neural network to the noisy input
         generated_clean = self.generator(noisy, z.clone())
 

@@ -16,7 +16,7 @@ class SEGAN_Generator(nn.Module):
         >>> generator = SEGAN_Generator(encoder_dimensions=[1, 16, 32, 32, 64, 64, 128, 128, 256, 256, 512, 1024])
     """
 
-    def __init__(self, encoder_dimensions=[1, 16, 32, 32, 64, 64, 128, 128, 256, 256, 512, 1024]):
+    def __init__(self, encoder_dimensions=[1, 16, 32, 32, 64, 64, 128, 128, 256, 256, 512, 1024]): # here are the generator dimensions
         """
         Initialize the SEGAN Generator model.
 

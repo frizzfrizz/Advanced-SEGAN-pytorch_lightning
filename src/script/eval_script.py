@@ -51,7 +51,7 @@ class EvalScript(Script, ABC):
 
         # Create the trainer
         trainer = self.create_trainer([])
-
+        print("CHECKPOINT in EVAL")
         # Fit the model using the trainer
         trainer.test(model=arch, datamodule=datamodule, ckpt_path=self.service.config['EVAL']['CHECKPOINT_PATH'],
                      verbose=True)
